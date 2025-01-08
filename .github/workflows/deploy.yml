@@ -18,7 +18,7 @@ jobs:
 
     - name: Build and push Docker images
       run: |
-        docker-compose -f docker-compose.yml up --build -d
+        docker compose -f docker-compose.yml up --build -d
 
     - name: Verify Kong Gateway
       run: |
