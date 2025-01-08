@@ -30,21 +30,13 @@ def update_item(item_id: int, item: Item):
 
 @app.get("/mail/")
 def read_item(to: str, subject: str, body: str = None):
-    if to == null:
-        return {"status":"400","msg":"'to' is null"}
-    if subject == null:
-        return {"status":"400","msg":"'subject' is null"}
-    if body == null:
-        bodyText = ""
-    if body != null:
-        bodyText = body
     fromAddress = 'noreply.hcratch3@gmail.com'
 
     smtpobj = smtplib.SMTP('smtp.gmail.com', 587)
     smtpobj.starttls()
     smtpobj.login(os.environ.get("sendAddress"), os.environ.get("password"))
 
-    msg = MIMEText(bodyText)
+    msg = MIMEText(body)
     msg['Subject'] = subject
     msg['From'] = fromAddress
     msg['To'] = to
