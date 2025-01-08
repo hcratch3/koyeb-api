@@ -16,17 +16,12 @@ class Item(BaseModel):
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"status":"200","msg":"Prease read docs. ==>> <APIURL>/docs"}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
-
-
-@app.put("/items/{item_id}")
-def update_item(item_id: int, item: Item):
-    return {"item_name": item.name, "item_id": item_id}
+@app.get("/about/")
+def read_item():
+    return {"status":"200", "msg":"Product by @hcratch3(https://github.com/hcratch3) (c)2025 hcratch3 / License : https://www.gnu.org/licenses/agpl-3.0.html#license-text"}
 
 @app.get("/mail/")
 def read_item(to: str, subject: str, body: str = None):
