@@ -33,6 +33,9 @@ def read_item(to: str, subject: str, body: str = None):
     sendAddress = os.environ.get("sendAddress")
     password = os.environ.get("password")
 
+    if not body:
+        body = "NO REPLY"
+
     fromAddress = 'noreply.hcratch3@gmail.com'
 
     smtpobj = smtplib.SMTP('smtp.gmail.com', 587)
